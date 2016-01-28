@@ -10,9 +10,15 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var myDatePicker: UIDatePicker!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        myDatePicker.datePickerMode = UIDatePickerMode.Date
+        let df = NSDateFormatter()
+        df.dateFormat = "yyyy/MM/dd"
+        myDatePicker.date = df.dateFromString("2015/01/01")!
+        myDatePicker.minimumDate = df.dateFromString("2015/01/01")
+        myDatePicker.maximumDate = df.dateFromString("2016/12/31")
     }
 
     override func didReceiveMemoryWarning() {
